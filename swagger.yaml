@@ -1,0 +1,97 @@
+openapi: "3.0.0"
+info:
+  description: "Dino."
+  version: "1.0.0"
+  title: "Dinosaur API"
+basePath: "/api/v1"
+schemes:
+- "http"
+paths:
+  /dinosaur:
+    get:
+      summary: "Get a list of all dinosaurs"
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/definitions/Dinosaur"
+
+    post:
+      summary: "Add a dinosaur"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/definitions/Dinosaur"
+      responses:
+        204:
+          description: "Updated"
+
+
+  /dinosaur/{name}:
+    get:
+      summary: "Get a single dinosaur by name"
+      parameters:
+      - in: "path"
+        name: "name"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/definitions/Dinosaur"
+
+    put:
+      summary: "Update a dinosaur"
+      parameters:
+        - in: "path"
+          name: "name"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        204:
+          description: "Updated"
+        404:
+          description: "Dinosaur not found"
+
+    delete:
+      summary: "Delete a dinosaur"
+      parameters:
+        - in: "path"
+          name: "name"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        204:
+          description: "Deleted"
+        404:
+          description: "Dinosaur not found"
+
+definitions:
+  Dinosaur:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      era:
+        type: "string"
+        enum:
+        - "triassic"
+        - "jurassic"
+        - "cretaceous"
+      diet:
+        type: "string"
+        enum:
+        - "herbivore"
+        - "omnivore"
+        - "carnivore"
