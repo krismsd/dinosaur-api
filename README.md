@@ -21,3 +21,7 @@ The API routes are described by the swagger file: `swagger.yaml`
 
 ### Admin routes
 POST/PUT/DELETE operations are protected behind Basic HTTP auth. The username is `admin` and password `letmein` (when running with the above commands) 
+
+## Things to Improve
+* Currently any error results in a generic problem error message. Better error messages should be returned and errors inspected to determine server or request fault. 
+* Logging should be abstracted a bit. Everything talks directly to Winston. 
