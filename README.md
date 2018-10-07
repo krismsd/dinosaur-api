@@ -14,6 +14,10 @@ Assuming your running a MongoDB instance accessible on `localhost` and you are r
 ```bash
 ADMIN_PASSWORD=letmein npm start
 ```
+This will start the server with the admin password set to `letmein`
 
 ## Routes
 The API routes are described by the swagger file: `swagger.yaml`
+
+### Admin routes
+POST/PUT/DELETE operations are protected behind Basic HTTP auth. The username is `admin` and password `letmein` (when running with the above commands) 
