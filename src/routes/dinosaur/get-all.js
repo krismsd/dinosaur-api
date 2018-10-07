@@ -5,7 +5,15 @@ const dinosaurFormatter = require('../../formatters/dinosaur');
 
 module.exports = async (req, res) => {
   try {
-    const dinosaurs = await Dinosaur.find().exec();
+    const query = {};
+    if (req.query.era) {
+      query.era = req.query.era;
+    }
+    if (req.query.diet) {
+      query.diet = req.query.diet;
+    }
+
+    const dinosaurs = await Dinosaur.find(query).exec();
     const out = dinosaurs.map(dinosaurFormatter);
 
     res.send(out);
