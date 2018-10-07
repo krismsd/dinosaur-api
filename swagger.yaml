@@ -1,6 +1,6 @@
 openapi: "3.0.0"
 info:
-  description: "Dino."
+  description: "An API for the management and perusing of Dino-tastic datas"
   version: "1.0.0"
   title: "Dinosaur API"
 basePath: "/api/v1"
