@@ -25,3 +25,4 @@ POST/PUT/DELETE operations are protected behind Basic HTTP auth. The username is
 ## Things to Improve
 * Currently any error results in a generic problem error message. Better error messages should be returned and errors inspected to determine server or request fault. 
 * Logging should be abstracted a bit. Everything talks directly to Winston. 
+* Tests - unit is not yet called for but light integration would be helpful. 
