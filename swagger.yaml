@@ -9,7 +9,16 @@ schemes:
 paths:
   /dinosaur:
     get:
-      summary: "Get a list of all dinosaurs"
+      summary: "Get a list of all dinosaurs optionally filtered by era/diet"
+      parameters:
+      - in: "query"
+        name: "era"
+        schema:
+          type: "string"
+      - in: "query"
+        name: "diet"
+        schema:
+          type: "string"
       responses:
         200:
           description: "OK"
